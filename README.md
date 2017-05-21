@@ -1,11 +1,11 @@
-The Rainmeter plugin software development kit contains the necessary tools and examples to build plugins in C/C++ and C#. Note that plugins built with the SDK require Rainmeter 2.3 beta or higher.
+This is a forked copy of the Rainmeter plugin repo and is just a simple configuration to make it easier to build plugins for c++. I have removed the C# dependencies and examples the came with the original project.
+If you are new to creating plugins do i suggest starting out with the plugin repo that is officially created from the rainmeter team. The documentation might not be of much help, but i still recommend reading it: [documentation](https://github.com/rainmeter/rainmeter-plugin-sdk/wiki/C---plugin-API).
 
-**Download:**
+The things that is different with this project is a few things:
+*   I have added some resource variables, so instead of having to change plugin version and copyright information in the rc file can you simply change it in version.h and it will be fetched from there. I find the rc file can be weird at times and prefer this myself.
+*   The plugin name is the name of the project itself, so to rename the plugin do you only need to rename the project in visual studio. Note that i say project and not Solution!
+*   I added a pre build step to cleanup the old build, this is just something i prefer myself since i can find myself renaming the plugin and it just saves me a small delete. ;)
 
-*   Use git (`git clone git@github.com:rainmeter/rainmeter-plugin-sdk.git`)
-*   Use svn (`svn checkout https://github.com/rainmeter/rainmeter-plugin-sdk/trunk rainmeter-plugin-sdk`)
-*   Download the [current snapshot](https://github.com/rainmeter/rainmeter-plugin-sdk/zipball/master) as a .zip archive.
 
-The SDK can be built using any version of Visual Studio 2017. If you don't already have VS2017, you can download the free "Visual Studio Community" version [here](https://www.visualstudio.com/downloads/).
-
-**Documentation:** The documentation is available at the [wiki](https://github.com/rainmeter/rainmeter-plugin-sdk/wiki/_pages).
+See the original Rainmeter plugin repo for additional information:
+[Repo](https://github.com/rainmeter/rainmeter-plugin-sdk)

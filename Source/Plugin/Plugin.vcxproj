@@ -19,15 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="PluginSystemVersion.rc" />
+    <ClCompile Include="Plugin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PluginSystemVersion.cpp" />
+    <ResourceCompile Include="Plugin.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="version.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7FB00A1C-F0C0-49FD-A15C-392F69FDF645}</ProjectGuid>
+    <ProjectGuid>{64FDEE97-6B7E-40E5-A489-ECA322825BC8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PluginSystemVersion</RootNamespace>
+    <RootNamespace>PluginEmpty</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -74,27 +78,35 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>SystemVersion</TargetName>
-    <OutDir>x32\$(Configuration)\</OutDir>
-    <IntDir>x32\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>..\Build\$(ProjectName)\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>SystemVersion</TargetName>
-    <OutDir>x64\$(Configuration)\</OutDir>
-    <IntDir>x64\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>..\Build\$(ProjectName)\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>SystemVersion</TargetName>
-    <OutDir>x32\$(Configuration)\</OutDir>
-    <IntDir>x32\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>..\Build\$(ProjectName)\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>SystemVersion</TargetName>
-    <OutDir>x64\$(Configuration)\</OutDir>
-    <IntDir>x64\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>..\Build\$(ProjectName)\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>Intermediate\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -102,14 +114,26 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PluginSystemVersion_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGINEMPTY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\..\API\x32\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\API\x32\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <ProfileGuidedDatabase>$(OutDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
+    <PreBuildEvent>
+      <Command>RD /S /Q "$(OutDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -117,17 +141,29 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PluginSystemVersion_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGINEMPTY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\..\API\x64\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\API\x64\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <ProfileGuidedDatabase>$(OutDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <ResourceCompile>
       <PreprocessorDefinitions>_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <PreBuildEvent>
+      <Command>RD /S /Q "$(OutDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -137,7 +173,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PluginSystemVersion_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGINEMPTY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -145,9 +181,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <MergeSections>.rdata=.text</MergeSections>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\..\API\x32\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\API\x32\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <ProfileGuidedDatabase>$(OutDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
+    <PreBuildEvent>
+      <Command>RD /S /Q "$(OutDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,7 +205,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PluginSystemVersion_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGINEMPTY_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -165,12 +213,24 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <MergeSections>.rdata=.text</MergeSections>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\..\API\x64\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\API\x64\Rainmeter.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <ProfileGuidedDatabase>$(OutDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <ResourceCompile>
       <PreprocessorDefinitions>_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <PreBuildEvent>
+      <Command>RD /S /Q "$(OutDir)"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

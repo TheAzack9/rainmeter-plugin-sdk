@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ResourceCompile Include="PluginParentChild.rc" />
+    <ClCompile Include="Plugin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PluginParentChild.cpp" />
+    <ResourceCompile Include="Plugin.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="version.h" />
   </ItemGroup>
 </Project>
