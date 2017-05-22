@@ -7,3 +7,7 @@ obj
 .vs/
 Build/
 Intermediate/
+*.exp
+*.iobj
+*.ipdb
+*.lib
