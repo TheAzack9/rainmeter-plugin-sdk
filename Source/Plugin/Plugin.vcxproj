@@ -32,7 +32,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PluginEmpty</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Animator</ProjectName>
+    <ProjectName>Plugin</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
