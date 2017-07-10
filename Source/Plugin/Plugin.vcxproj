@@ -128,8 +128,10 @@
       <Command>RD /S /Q "$(OutDir)"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>taskkill /F /IM Rainmeter.exe
+xcopy /R /Y "$(OutputPath)$(TargetFileName)" "%appdata%/Rainmeter/Plugins/$(TargetFileName)"
+%appdata%/Rainmeter/Rainmeter.exe</Command>
+      <Message>Copies plugin into rainmeter directory</Message>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>
@@ -158,8 +160,10 @@
       <Command>RD /S /Q "$(OutDir)"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>taskkill /F /IM Rainmeter.exe
+xcopy /R /Y "$(OutputPath)$(TargetFileName)" "%appdata%/Rainmeter/Plugins/$(TargetFileName)"
+%appdata%/Rainmeter/Rainmeter.exe</Command>
+      <Message>Copies plugin into rainmeter directory</Message>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>
